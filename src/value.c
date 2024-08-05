@@ -25,6 +25,10 @@ void reset_value(struct value *val)
 
 void delete_digit(struct value *val)
 {
+        if (val->num_digits == 0) {
+                return;
+        }
+
         val->digits[val->num_digits - 1] = '\0';
         --val->num_digits;
 }
