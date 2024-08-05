@@ -50,3 +50,12 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# CMake output files
+build/
+build-rel/
+bin/
+compile_commands.json
+
+# ClangD
+.cache/
