@@ -14,6 +14,17 @@ execute_process(
         ${CMAKE_CURRENT_SOURCE_DIR}/compile_commands.json
 )
 
+find_library(RAYLIB_LIB_FOUND raylib QUIET)
+if (NOT RAYLIB_LIB_FOUND)
+	include(FetchContent)
+	FetchContent_Declare(
+		raylib
+		GIT_REPOSITORY https://github.com/raysan5/raylib.git
+		GIT_TAG 5.0
+	) 
+	FetchContent_MakeAvailable(raylib)
+endif()
+
 add_executable(${PROJECT_NAME}
 	src/main.c
 	src/display.c
